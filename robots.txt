@@ -1,0 +1,23 @@
+# robots.txt for branovisforge.com
+User-agent: *
+Allow: /
+Disallow: /node_modules/
+Disallow: /*.json$
+Disallow: /*.js$
+Disallow: /package.json
+Disallow: /vite.config.js
+Disallow: /tailwind.config.js
+
+# Allow all search engines
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+# Sitemap location
+Sitemap: https://www.branovisforge.com/sitemap.xml
+
