@@ -5,13 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     
-    <!-- Primary Meta Tags -->
-    <title>Our Projects | Construction & Remodeling Portfolio | Branovis Forge Remodelling LLC</title>
-    <meta name="title" content="Our Projects | Construction & Remodeling Portfolio | Branovis Forge Remodelling LLC">
-    <meta name="description" content="Browse our extensive portfolio of completed construction, remodeling, and renovation projects. View residential and commercial builds showcasing our quality craftsmanship and expertise since 1998.">
-    <meta name="keywords" content="construction projects, remodeling portfolio, renovation gallery, commercial construction projects, residential construction, completed builds, construction portfolio, remodeling examples">
+    <!-- Primary Meta Tags - 2026 SEO Optimized -->
+    <title>Construction Projects Portfolio | Residential & Commercial Builds | Branovis Forge</title>
+    <meta name="title" content="Construction Projects Portfolio | Residential & Commercial Builds | Branovis Forge">
+    <meta name="description" content="Explore our portfolio of completed construction and remodeling projects. Residential renovations, commercial builds, healthcare facilities, and industrial projects. Quality craftsmanship since 1998.">
+    <meta name="keywords" content="construction portfolio, remodeling projects, residential construction, commercial construction, healthcare construction, renovation projects, construction gallery, building projects">
     <meta name="author" content="Branovis Forge Remodelling LLC">
-    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1, max-image-preview:large">
+    <meta name="googlebot" content="index, follow, max-image-preview:large">
     <link rel="canonical" href="https://www.branovisforge.com/projects.html">
     
     <!-- Mobile Optimizations -->
@@ -33,18 +34,40 @@
     <meta name="twitter:title" content="Our Projects | Branovis Forge Remodelling LLC">
     <meta name="twitter:description" content="Construction and remodeling portfolio">
     
-    <!-- Structured Data -->
+    <!-- Enhanced Structured Data - 2026 SEO -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "CollectionPage",
         "@id": "https://www.branovisforge.com/projects.html",
-        "name": "Construction Projects Portfolio",
-        "description": "Portfolio of completed construction and remodeling projects",
+        "name": "Construction Projects Portfolio | Branovis Forge",
+        "description": "Browse our extensive portfolio of completed construction, remodeling, and renovation projects across residential, commercial, healthcare, hospitality, and industrial sectors.",
         "url": "https://www.branovisforge.com/projects.html",
         "mainEntity": {
             "@type": "ItemList",
             "itemListElement": []
+        },
+        "breadcrumb": {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+                {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "Home",
+                    "item": "https://www.branovisforge.com/index.html"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "name": "Projects",
+                    "item": "https://www.branovisforge.com/projects.html"
+                }
+            ]
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Branovis Forge Remodelling LLC",
+            "url": "https://www.branovisforge.com"
         }
     }
     </script>
@@ -152,78 +175,77 @@
     <main id="main-content">
         <!-- Page Header -->
         <section class="page-header">
-            <div class="hero-construction-materials-bg"></div>
             <div class="container">
-                <h1>Project Experience</h1>
-                <p>Branovis Forge, a subsidiary of The Branovis, is a leading construction contractor with decades of experience in new construction, building retrofits, commercial remodels, and residential projects. Our team delivers integrated construction solutions across healthcare, education, industrial, hospitality, and residential markets.</p>
+                <h1>Our Project Portfolio</h1>
+                <p>Showcasing excellence in construction and remodeling across multiple sectors</p>
             </div>
         </section>
 
         <!-- Projects Gallery -->
         <section class="projects section">
             <div class="container">
-                <!-- Search and Filter Bar -->
+                <!-- Search and Filter Bar - Redesigned -->
                 <div class="projects-filter-bar">
                     <div class="projects-search-wrapper">
-                        <input type="text" id="project-search" class="project-search-input" placeholder="Search projects..." aria-label="Search projects">
-                        <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <input type="text" id="project-search" class="project-search-input" placeholder="Search projects by name, location, or type..." aria-label="Search projects">
+                        <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                             <path d="M21 21L15 15M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
                     </div>
                     
                     <div class="projects-filters-container">
                         <div class="filter-dropdown">
-                            <button class="filter-dropdown-toggle" data-filter-type="market" aria-label="Filter by market">
+                            <button class="filter-dropdown-toggle" data-filter-type="market" aria-label="Filter by market" aria-expanded="false">
                                 <span class="filter-toggle-label">Market</span>
-                                <span class="filter-toggle-icon">▼</span>
+                                <span class="filter-toggle-icon" aria-hidden="true">▼</span>
                             </button>
-                            <div class="filter-dropdown-menu" id="market-filter">
-                                <button class="filter-option active" data-filter="all" data-type="market">All Markets</button>
-                                <button class="filter-option" data-filter="residential" data-type="market">Residential</button>
-                                <button class="filter-option" data-filter="commercial" data-type="market">Commercial</button>
-                                <button class="filter-option" data-filter="healthcare" data-type="market">Healthcare</button>
-                                <button class="filter-option" data-filter="hospitality" data-type="market">Hospitality</button>
-                                <button class="filter-option" data-filter="industrial" data-type="market">Industrial</button>
+                            <div class="filter-dropdown-menu" id="market-filter" role="menu">
+                                <button class="filter-option active" data-filter="all" data-type="market" role="menuitem">All Markets</button>
+                                <button class="filter-option" data-filter="residential" data-type="market" role="menuitem">Residential</button>
+                                <button class="filter-option" data-filter="commercial" data-type="market" role="menuitem">Commercial</button>
+                                <button class="filter-option" data-filter="healthcare" data-type="market" role="menuitem">Healthcare</button>
+                                <button class="filter-option" data-filter="hospitality" data-type="market" role="menuitem">Hospitality</button>
+                                <button class="filter-option" data-filter="industrial" data-type="market" role="menuitem">Industrial</button>
                             </div>
                         </div>
 
                         <div class="filter-dropdown">
-                            <button class="filter-dropdown-toggle" data-filter-type="service" aria-label="Filter by service">
-                                <span class="filter-toggle-label">Service Type</span>
-                                <span class="filter-toggle-icon">▼</span>
+                            <button class="filter-dropdown-toggle" data-filter-type="service" aria-label="Filter by service type" aria-expanded="false">
+                                <span class="filter-toggle-label">Service</span>
+                                <span class="filter-toggle-icon" aria-hidden="true">▼</span>
                             </button>
-                            <div class="filter-dropdown-menu" id="service-filter">
-                                <button class="filter-option active" data-service="all" data-type="service">All Services</button>
-                                <button class="filter-option" data-service="remodeling" data-type="service">Remodeling</button>
-                                <button class="filter-option" data-service="renovation" data-type="service">Renovation</button>
-                                <button class="filter-option" data-service="new-construction" data-type="service">New Construction</button>
+                            <div class="filter-dropdown-menu" id="service-filter" role="menu">
+                                <button class="filter-option active" data-service="all" data-type="service" role="menuitem">All Services</button>
+                                <button class="filter-option" data-service="remodeling" data-type="service" role="menuitem">Remodeling</button>
+                                <button class="filter-option" data-service="renovation" data-type="service" role="menuitem">Renovation</button>
+                                <button class="filter-option" data-service="new-construction" data-type="service" role="menuitem">New Construction</button>
                             </div>
                         </div>
 
                         <div class="filter-dropdown">
-                            <button class="filter-dropdown-toggle" data-filter-type="location" aria-label="Filter by location">
+                            <button class="filter-dropdown-toggle" data-filter-type="location" aria-label="Filter by location" aria-expanded="false">
                                 <span class="filter-toggle-label">Location</span>
-                                <span class="filter-toggle-icon">▼</span>
+                                <span class="filter-toggle-icon" aria-hidden="true">▼</span>
                             </button>
-                            <div class="filter-dropdown-menu" id="location-filter">
-                                <button class="filter-option active" data-location="all" data-type="location">All Locations</button>
-                                <button class="filter-option" data-location="atlanta" data-type="location">Atlanta, GA</button>
-                                <button class="filter-option" data-location="charlotte" data-type="location">Charlotte, NC</button>
-                                <button class="filter-option" data-location="dallas" data-type="location">Dallas, TX</button>
-                                <button class="filter-option" data-location="miami" data-type="location">Miami, FL</button>
-                                <button class="filter-option" data-location="new-york" data-type="location">New York, NY</button>
-                                <button class="filter-option" data-location="los-angeles" data-type="location">Los Angeles, CA</button>
-                                <button class="filter-option" data-location="chicago" data-type="location">Chicago, IL</button>
+                            <div class="filter-dropdown-menu" id="location-filter" role="menu">
+                                <button class="filter-option active" data-location="all" data-type="location" role="menuitem">All Locations</button>
+                                <button class="filter-option" data-location="atlanta" data-type="location" role="menuitem">Atlanta, GA</button>
+                                <button class="filter-option" data-location="charlotte" data-type="location" role="menuitem">Charlotte, NC</button>
+                                <button class="filter-option" data-location="dallas" data-type="location" role="menuitem">Dallas, TX</button>
+                                <button class="filter-option" data-location="miami" data-type="location" role="menuitem">Miami, FL</button>
+                                <button class="filter-option" data-location="new-york" data-type="location" role="menuitem">New York, NY</button>
+                                <button class="filter-option" data-location="los-angeles" data-type="location" role="menuitem">Los Angeles, CA</button>
+                                <button class="filter-option" data-location="chicago" data-type="location" role="menuitem">Chicago, IL</button>
                             </div>
                         </div>
 
-                        <button class="clear-filters-btn" id="clear-filters">Clear All</button>
+                        <button class="clear-filters-btn" id="clear-filters" aria-label="Clear all filters">Clear All</button>
                     </div>
                 </div>
                 
                 <div class="project-count-wrapper">
-                    <div class="project-count" id="project-count">
-                        <span id="count-number">0</span> projects found
+                    <div class="project-count" id="project-count" aria-live="polite">
+                        <span id="count-number">0</span> <span>projects found</span>
                     </div>
                 </div>
 
