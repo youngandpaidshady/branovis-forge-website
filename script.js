@@ -2576,3 +2576,121 @@ function initContactPageAnimations() {
     }
 }
 
+// ===========================================
+// Construction Materials Rain Effect
+// ===========================================
+function initConstructionMaterialsRain() {
+    const rainContainer = document.getElementById('construction-materials-rain');
+    if (!rainContainer) return;
+
+    // Construction material symbols/emojis
+    const materials = ['🔨', '⚒️', '🪚', '🔧', '⛏️', '🪓', '📐', '🔩', '⚙️', '🧱', '🏗️', '🔲', '📦', '🧰'];
+    
+    // Create particles continuously
+    function createParticle() {
+        const particle = document.createElement('div');
+        particle.className = 'construction-material-particle';
+        
+        // Random material
+        const material = materials[Math.floor(Math.random() * materials.length)];
+        particle.textContent = material;
+        
+        // Random starting position
+        const startX = Math.random() * 100;
+        particle.style.left = startX + '%';
+        
+        // Random size
+        const size = 1.2 + Math.random() * 0.8; // 1.2rem to 2rem
+        particle.style.fontSize = size + 'rem';
+        
+        // Random animation duration (fast - 2-4 seconds)
+        const duration = 2 + Math.random() * 2;
+        particle.style.animationDuration = duration + 's';
+        
+        // Random delay
+        particle.style.animationDelay = Math.random() * 0.5 + 's';
+        
+        rainContainer.appendChild(particle);
+        
+        // Remove particle after animation completes
+        setTimeout(() => {
+            if (particle.parentNode) {
+                particle.remove();
+            }
+        }, (duration + 0.5) * 1000);
+    }
+    
+    // Create particles at intervals (fast rainfall)
+    const createInterval = setInterval(() => {
+        if (document.getElementById('construction-materials-rain')) {
+            createParticle();
+        } else {
+            clearInterval(createInterval);
+        }
+    }, 150); // Create new particle every 150ms for fast rainfall
+    
+    // Create initial batch
+    for (let i = 0; i < 20; i++) {
+        setTimeout(() => createParticle(), i * 50);
+    }
+}
+
+
+// ===========================================
+// Construction Materials Rain Effect
+// ===========================================
+function initConstructionMaterialsRain() {
+    const rainContainer = document.getElementById('construction-materials-rain');
+    if (!rainContainer) return;
+
+    // Construction material symbols/emojis
+    const materials = ['🔨', '⚒️', '🪚', '🔧', '⛏️', '🪓', '📐', '🔩', '⚙️', '🧱', '🏗️', '🔲', '📦', '🧰'];
+    
+    // Create particles continuously
+    function createParticle() {
+        const particle = document.createElement('div');
+        particle.className = 'construction-material-particle';
+        
+        // Random material
+        const material = materials[Math.floor(Math.random() * materials.length)];
+        particle.textContent = material;
+        
+        // Random starting position
+        const startX = Math.random() * 100;
+        particle.style.left = startX + '%';
+        
+        // Random size
+        const size = 1.2 + Math.random() * 0.8; // 1.2rem to 2rem
+        particle.style.fontSize = size + 'rem';
+        
+        // Random animation duration (fast - 2-4 seconds)
+        const duration = 2 + Math.random() * 2;
+        particle.style.animationDuration = duration + 's';
+        
+        // Random delay
+        particle.style.animationDelay = Math.random() * 0.5 + 's';
+        
+        rainContainer.appendChild(particle);
+        
+        // Remove particle after animation completes
+        setTimeout(() => {
+            if (particle.parentNode) {
+                particle.remove();
+            }
+        }, (duration + 0.5) * 1000);
+    }
+    
+    // Create particles at intervals (fast rainfall)
+    const createInterval = setInterval(() => {
+        if (document.getElementById('construction-materials-rain')) {
+            createParticle();
+        } else {
+            clearInterval(createInterval);
+        }
+    }, 150); // Create new particle every 150ms for fast rainfall
+    
+    // Create initial batch
+    for (let i = 0; i < 20; i++) {
+        setTimeout(() => createParticle(), i * 50);
+    }
+}
