@@ -555,7 +555,7 @@
             <div class="container">
                 <div class="section-header">
                     <span class="section-tag">Questions & Answers</span>
-                    <h2 class="section-title">Your Construction & Remodeling Questions Answered</h2>
+                    <h2 class="section-title faq-title-black">Your Construction & Remodeling Questions Answered</h2>
                 </div>
                 <div class="faq-list">
                     <div class="faq-item">
@@ -910,6 +910,48 @@
         }
     }
     </script>
+
+    <!-- Questions & Answers Chat Box Widget -->
+    <div class="qa-chat-widget" id="qa-chat-widget">
+        <button class="qa-chat-toggle" id="qa-chat-toggle" aria-label="Open Questions & Answers">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+            </svg>
+            <span class="qa-badge">Q&A</span>
+        </button>
+        <div class="qa-chat-box" id="qa-chat-box">
+            <div class="qa-chat-header">
+                <h3>Questions & Answers</h3>
+                <button class="qa-close" id="qa-close" aria-label="Close chat">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+            <div class="qa-chat-content" id="qa-chat-content">
+                <div class="qa-welcome">
+                    <p>👋 Hi! Have questions about construction or remodeling? Ask me anything!</p>
+                </div>
+                <div class="qa-quick-questions">
+                    <p class="qa-quick-title">Quick Questions:</p>
+                    <button class="qa-quick-btn" data-question="How long does a typical remodeling project take?">⏱️ Project Timeline</button>
+                    <button class="qa-quick-btn" data-question="Do you provide free estimates?">💰 Free Estimates</button>
+                    <button class="qa-quick-btn" data-question="What types of construction projects do you handle?">🏗️ Project Types</button>
+                    <button class="qa-quick-btn" data-question="How much should I budget for a renovation?">💵 Budget Planning</button>
+                </div>
+            </div>
+            <div class="qa-chat-input-wrapper">
+                <input type="text" class="qa-chat-input" id="qa-chat-input" placeholder="Type your question here..." />
+                <button class="qa-send-btn" id="qa-send-btn" aria-label="Send question">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="22" y1="2" x2="11" y2="13"></line>
+                        <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
     
     <script type="module" src="script.js" defer></script>
 </body>

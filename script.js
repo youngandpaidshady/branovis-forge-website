@@ -34,6 +34,7 @@ function initAllScripts() {
     initBackToTop();
     initFloatingQuickAccess();
     initFAQ();
+    initQAChatWidget();
     initContactForm();
     initProjectFilters();
     initProjectModal();
@@ -2632,5 +2633,95 @@ function initConstructionMaterialsRain() {
     // Create initial batch
     for (let i = 0; i < 20; i++) {
         setTimeout(() => createParticle(), i * 50);
+    }
+}
+
+// ===========================================
+// Questions & Answers Chat Widget
+// ===========================================
+function initQAChatWidget() {
+    const chatWidget = document.getElementById('qa-chat-widget');
+    const chatToggle = document.getElementById('qa-chat-toggle');
+    const chatBox = document.getElementById('qa-chat-box');
+    const chatClose = document.getElementById('qa-close');
+    const chatInput = document.getElementById('qa-chat-input');
+    const sendBtn = document.getElementById('qa-send-btn');
+    const quickBtns = document.querySelectorAll('.qa-quick-btn');
+    const chatContent = document.getElementById('qa-chat-content');
+    
+    if (!chatWidget || !chatToggle || !chatBox) return;
+    
+    // FAQ answers mapping
+    const faqAnswers = {
+        'How long does a typical remodeling project take?': 'Project timelines vary based on scope and complexity. A kitchen remodel typically takes 6-12 weeks, while a complete home renovation can take 3-6 months. We provide detailed timelines during the planning phase.',
+        'Do you provide free estimates?': 'Yes, we offer free consultations and detailed estimates for all projects. Contact us to schedule a meeting where we\'ll discuss your vision and provide a comprehensive quote.',
+        'What types of construction projects do you handle?': 'Think of us as your construction Swiss Army knife! Whether you\'re dreaming of a stunning kitchen transformation, adding that extra room you\'ve always wanted, building a state-of-the-art healthcare facility, or creating a show-stopping commercial space—we\'ve done it all. From cozy bathroom makeovers to massive industrial complexes, we bring the same passion and precision to every project.',
+        'How much should I budget for a renovation?': 'Let\'s talk numbers! Every project is as unique as you are, so budgets naturally vary. Here\'s the lowdown: dream kitchens typically run -, stunning bathroom transformations range -, while whole-home makeovers can go -+. Pro tip: we always recommend a 15-20% cushion for those "surprise" moments!'
+    };
+    
+    // Toggle chat box
+    chatToggle.addEventListener('click', () => {
+        chatWidget.classList.toggle('active');
+    });
+    
+    // Close chat box
+    chatClose.addEventListener('click', () => {
+        chatWidget.classList.remove('active');
+    });
+    
+    // Handle quick question buttons
+    quickBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const question = btn.getAttribute('data-question');
+            if (question) {
+                displayQuestion(question);
+            }
+        });
+    });
+    
+    // Handle send button
+    sendBtn.addEventListener('click', () => {
+        const question = chatInput.value.trim();
+        if (question) {
+            displayQuestion(question);
+            chatInput.value = '';
+        }
+    });
+    
+    // Handle Enter key in input
+    chatInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+            const question = chatInput.value.trim();
+            if (question) {
+                displayQuestion(question);
+                chatInput.value = '';
+            }
+        }
+    });
+    
+    // Display question and answer
+    function displayQuestion(question) {
+        // Add user question
+        const questionDiv = document.createElement('div');
+        questionDiv.className = 'qa-message qa-user-message';
+        questionDiv.innerHTML = <p><strong>You:</strong> </p>;
+        chatContent.appendChild(questionDiv);
+        
+        // Scroll to bottom
+        chatContent.scrollTop = chatContent.scrollHeight;
+        
+        // Find answer or use default
+        let answer = faqAnswers[question] || 'Thank you for your question! Our team will get back to you soon. For immediate assistance, please call us or fill out our contact form.';
+        
+        // Add answer after a short delay
+        setTimeout(() => {
+            const answerDiv = document.createElement('div');
+            answerDiv.className = 'qa-message qa-bot-message';
+            answerDiv.innerHTML = <p><strong>Branovis Forge:</strong> </p>;
+            chatContent.appendChild(answerDiv);
+            
+            // Scroll to bottom
+            chatContent.scrollTop = chatContent.scrollHeight;
+        }, 500);
     }
 }

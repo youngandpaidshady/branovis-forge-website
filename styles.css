@@ -4431,6 +4431,12 @@ p {
     background: #FFFFFF;
 }
 
+.faq-title-black {
+    color: #000000 !important;
+    font-weight: 700;
+    font-family: 'Poppins', 'Inter', sans-serif;
+}
+
 .faq-list {
     max-width: 800px;
     margin: 0 auto;
