@@ -174,10 +174,26 @@
 
     <main id="main-content">
         <!-- Page Header -->
-        <section class="page-header">
+        <section class="page-header projects-hero">
             <div class="container">
-                <h1>Our Project Portfolio</h1>
-                <p>Showcasing excellence in construction and remodeling across multiple sectors</p>
+                <div class="projects-hero-content">
+                    <h1>Our Project Portfolio</h1>
+                    <p class="projects-hero-subtitle">Showcasing excellence in construction and remodeling across multiple sectors</p>
+                    <div class="projects-stats">
+                        <div class="stat-badge">
+                            <span class="stat-number">500+</span>
+                            <span class="stat-label">Projects Completed</span>
+                        </div>
+                        <div class="stat-badge">
+                            <span class="stat-number">25+</span>
+                            <span class="stat-label">Years Experience</span>
+                        </div>
+                        <div class="stat-badge">
+                            <span class="stat-number">100%</span>
+                            <span class="stat-label">Client Satisfaction</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -243,14 +259,34 @@
                     </div>
                 </div>
                 
-                <div class="project-count-wrapper">
-                    <div class="project-count" id="project-count" aria-live="polite">
-                        <span id="count-number">0</span> <span>projects found</span>
+                <div class="projects-header-bar">
+                    <div class="project-count-wrapper">
+                        <div class="project-count" id="project-count" aria-live="polite">
+                            <span class="count-icon">📊</span>
+                            <span id="count-number">0</span> <span>projects found</span>
+                        </div>
+                    </div>
+                    <div class="view-toggle">
+                        <button class="view-btn active" data-view="grid" aria-label="Grid view">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="3" width="7" height="7"></rect>
+                                <rect x="14" y="3" width="7" height="7"></rect>
+                                <rect x="3" y="14" width="7" height="7"></rect>
+                                <rect x="14" y="14" width="7" height="7"></rect>
+                            </svg>
+                        </button>
+                        <button class="view-btn" data-view="list" aria-label="List view">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="3" y1="6" x2="21" y2="6"></line>
+                                <line x1="3" y1="12" x2="21" y2="12"></line>
+                                <line x1="3" y1="18" x2="21" y2="18"></line>
+                            </svg>
+                        </button>
                     </div>
                 </div>
 
                 <!-- Projects Grid -->
-                <div class="projects-grid" id="projects-grid">
+                <div class="projects-grid projects-masonry" id="projects-grid">
                     <!-- Residential Projects -->
                     <div class="project-card" data-industry="residential" data-service="remodeling" data-location="atlanta" data-search="modern kitchen remodel residential remodeling atlanta">
                         <div class="project-image">
