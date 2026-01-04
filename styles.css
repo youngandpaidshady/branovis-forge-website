@@ -4437,6 +4437,306 @@ p {
     font-family: 'Poppins', 'Inter', sans-serif;
 }
 
+/* ===========================================
+   Questions & Answers Chat Box Widget
+   =========================================== */
+.qa-chat-widget {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    z-index: 997;
+    font-family: 'Inter', sans-serif;
+}
+
+.qa-chat-toggle {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background: var(--secondary);
+    color: var(--primary);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 20px rgba(247, 184, 1, 0.4);
+    transition: all 0.3s ease;
+    position: relative;
+    transform-style: preserve-3d;
+}
+
+.qa-chat-toggle:hover {
+    transform: scale(1.1) translateZ(10px);
+    box-shadow: 0 6px 30px rgba(247, 184, 1, 0.6);
+}
+
+.qa-chat-toggle svg {
+    width: 28px;
+    height: 28px;
+    margin-bottom: 2px;
+}
+
+.qa-badge {
+    font-size: 0.7rem;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.qa-chat-box {
+    position: absolute;
+    bottom: 90px;
+    right: 0;
+    width: 380px;
+    max-height: 600px;
+    background: #FFFFFF;
+    border-radius: 1rem;
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.15);
+    display: none;
+    flex-direction: column;
+    overflow: hidden;
+    transform: translateY(20px);
+    opacity: 0;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-style: preserve-3d;
+}
+
+.qa-chat-widget.active .qa-chat-box {
+    display: flex;
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.qa-chat-header {
+    background: linear-gradient(135deg, var(--primary) 0%, #2E4057 100%);
+    color: #FFFFFF;
+    padding: 1.25rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid rgba(247, 184, 1, 0.3);
+}
+
+.qa-chat-header h3 {
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #FFFFFF;
+    font-family: 'Poppins', 'Inter', sans-serif;
+}
+
+.qa-close {
+    background: transparent;
+    border: none;
+    color: #FFFFFF;
+    cursor: pointer;
+    padding: 0.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.25rem;
+    transition: all 0.2s ease;
+}
+
+.qa-close:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: rotate(90deg);
+}
+
+.qa-chat-content {
+    flex: 1;
+    overflow-y: auto;
+    padding: 1.5rem;
+    background: #F8F9FA;
+    max-height: 450px;
+}
+
+.qa-welcome {
+    background: #FFFFFF;
+    padding: 1rem;
+    border-radius: 0.75rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.qa-welcome p {
+    margin: 0;
+    color: var(--text-dark);
+    font-size: 0.9375rem;
+    line-height: 1.6;
+}
+
+.qa-quick-questions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.qa-quick-title {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.qa-quick-btn {
+    background: #FFFFFF;
+    border: 2px solid var(--accent2);
+    border-radius: 0.5rem;
+    padding: 0.875rem 1rem;
+    text-align: left;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.9375rem;
+    color: var(--text-dark);
+    font-weight: 500;
+    transform-style: preserve-3d;
+}
+
+.qa-quick-btn:hover {
+    background: var(--secondary);
+    color: var(--primary);
+    border-color: var(--secondary);
+    transform: translateX(5px) translateZ(5px);
+    box-shadow: 0 4px 12px rgba(247, 184, 1, 0.3);
+}
+
+.qa-chat-input-wrapper {
+    display: flex;
+    gap: 0.5rem;
+    padding: 1rem 1.5rem;
+    background: #FFFFFF;
+    border-top: 1px solid var(--accent2);
+}
+
+.qa-chat-input {
+    flex: 1;
+    padding: 0.875rem 1rem;
+    border: 2px solid var(--accent2);
+    border-radius: 0.5rem;
+    font-size: 0.9375rem;
+    font-family: inherit;
+    transition: all 0.3s ease;
+}
+
+.qa-chat-input:focus {
+    outline: none;
+    border-color: var(--secondary);
+    box-shadow: 0 0 0 3px rgba(247, 184, 1, 0.1);
+}
+
+.qa-send-btn {
+    width: 44px;
+    height: 44px;
+    background: var(--secondary);
+    color: var(--primary);
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    transform-style: preserve-3d;
+}
+
+.qa-send-btn:hover {
+    background: var(--primary);
+    color: var(--secondary);
+    transform: translateZ(5px) scale(1.05);
+    box-shadow: 0 4px 12px rgba(247, 184, 1, 0.4);
+}
+
+.qa-send-btn svg {
+    width: 20px;
+    height: 20px;
+}
+
+.qa-message {
+    margin-bottom: 1rem;
+    padding: 0.875rem 1rem;
+    border-radius: 0.75rem;
+    animation: messageSlideIn 0.3s ease;
+}
+
+@keyframes messageSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.qa-user-message {
+    background: var(--secondary);
+    color: var(--primary);
+    margin-left: auto;
+    max-width: 80%;
+    text-align: right;
+}
+
+.qa-user-message p {
+    margin: 0;
+    font-size: 0.9375rem;
+    line-height: 1.5;
+}
+
+.qa-bot-message {
+    background: #FFFFFF;
+    color: var(--text-dark);
+    border: 1px solid var(--accent2);
+    max-width: 85%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.qa-bot-message p {
+    margin: 0;
+    font-size: 0.9375rem;
+    line-height: 1.6;
+}
+
+.qa-bot-message strong {
+    color: var(--primary);
+    font-weight: 700;
+}
+
+@media (max-width: 640px) {
+    .qa-chat-widget {
+        bottom: 1.5rem;
+        right: 1.5rem;
+    }
+    
+    .qa-chat-toggle {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .qa-chat-toggle svg {
+        width: 24px;
+        height: 24px;
+    }
+    
+    .qa-badge {
+        font-size: 0.65rem;
+    }
+    
+    .qa-chat-box {
+        width: calc(100vw - 3rem);
+        max-width: 380px;
+        bottom: 80px;
+        max-height: 500px;
+    }
+    
+    .qa-chat-content {
+        max-height: 350px;
+    }
+}
+
 .faq-list {
     max-width: 800px;
     margin: 0 auto;
