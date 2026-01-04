@@ -3147,17 +3147,11 @@ p {
     }
 }
 
-.ceo-title {
-    color: var(--secondary);
-    font-weight: 600;
-    margin-bottom: 1.5rem;
-    font-size: 1.125rem;
-}
-
 .ceo-text p {
     margin-bottom: 1.5rem;
-    color: var(--accent1);
+    color: rgba(255, 255, 255, 0.9);
     line-height: 1.8;
+    font-size: 1.0625rem;
 }
 
 /* ===========================================
