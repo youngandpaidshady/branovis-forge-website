@@ -2818,6 +2818,16 @@ function initConstructionParticles3D() {
 }
 
 // ===========================================
+// Footer Year
+// ===========================================
+function initFooterYear() {
+    const footerYearElement = document.getElementById('footer-year');
+    if (footerYearElement) {
+        footerYearElement.textContent = new Date().getFullYear();
+    }
+}
+
+// ===========================================
 // Construction Icons Floating
 // ===========================================
 function initConstructionIconsFloating() {
