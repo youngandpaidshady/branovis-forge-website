@@ -392,7 +392,7 @@ let activeFilters = {
 };
 
 function initProjectFilters() {
-    const projectCards = document.querySelectorAll('.project-card');
+    const projectCards = document.querySelectorAll('.project-card-3d, .project-card');
     if (projectCards.length === 0) return;
 
     // Search input
@@ -404,7 +404,27 @@ function initProjectFilters() {
         });
     }
 
-    // Filter dropdowns
+    // Filter pills (new design)
+    const filterPills = document.querySelectorAll('.filter-pill');
+    filterPills.forEach(pill => {
+        pill.addEventListener('click', (e) => {
+            e.preventDefault();
+            
+            // Remove active from all pills
+            filterPills.forEach(p => p.classList.remove('active'));
+            
+            // Add active to clicked pill
+            pill.classList.add('active');
+            
+            // Get filter value
+            const filterValue = pill.getAttribute('data-filter') || 'all';
+            activeFilters.market = filterValue;
+            
+            filterProjects();
+        });
+    });
+
+    // Legacy dropdown support (if exists)
     const filterToggles = document.querySelectorAll('.filter-dropdown-toggle');
     filterToggles.forEach(toggle => {
         toggle.addEventListener('click', (e) => {
@@ -413,17 +433,14 @@ function initProjectFilters() {
             const dropdown = toggle.closest('.filter-dropdown');
             if (!dropdown) return;
             
-            // Close other dropdowns
             document.querySelectorAll('.filter-dropdown').forEach(d => {
                 if (d !== dropdown) d.classList.remove('active');
             });
             
-            // Toggle current dropdown
             dropdown.classList.toggle('active');
         });
     });
 
-    // Filter options
     const filterOptions = document.querySelectorAll('.filter-option');
     filterOptions.forEach(option => {
         option.addEventListener('click', (e) => {
@@ -438,7 +455,6 @@ function initProjectFilters() {
                          option.getAttribute('data-service') || 
                          option.getAttribute('data-location') || 'all';
             
-            // Update active state
             const menu = option.closest('.filter-dropdown-menu');
             if (menu) {
                 menu.querySelectorAll('.filter-option').forEach(opt => {
@@ -447,73 +463,18 @@ function initProjectFilters() {
             }
             option.classList.add('active');
             
-            // Update filter
             if (type && activeFilters.hasOwnProperty(type)) {
                 activeFilters[type] = value;
                 filterProjects();
             }
             
-            // Update toggle label
             const toggle = dropdown.querySelector('.filter-toggle-label');
             if (toggle) {
                 toggle.textContent = option.textContent.trim();
             }
             
-            // Close dropdown after selection
             dropdown.classList.remove('active');
         });
-    });
-
-    // Clear filters
-    const clearFiltersBtn = document.getElementById('clear-filters');
-    if (clearFiltersBtn) {
-        clearFiltersBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            e.stopPropagation();
-            
-            activeFilters = { market: 'all', service: 'all', location: 'all', search: '' };
-            if (projectSearch) projectSearch.value = '';
-            
-            // Reset all filter options
-            filterOptions.forEach(opt => {
-                const filterVal = opt.getAttribute('data-filter');
-                const serviceVal = opt.getAttribute('data-service');
-                const locationVal = opt.getAttribute('data-location');
-                
-                if (filterVal === 'all' || serviceVal === 'all' || locationVal === 'all') {
-                    opt.classList.add('active');
-                } else {
-                    opt.classList.remove('active');
-                }
-            });
-            
-            // Reset toggle labels
-            filterToggles.forEach(toggle => {
-                const label = toggle.querySelector('.filter-toggle-label');
-                if (label) {
-                    const defaultText = toggle.getAttribute('data-filter-type');
-                    if (defaultText === 'market') label.textContent = 'Market';
-                    else if (defaultText === 'service') label.textContent = 'Service Type';
-                    else if (defaultText === 'location') label.textContent = 'Location';
-                }
-            });
-            
-            // Close all dropdowns
-            document.querySelectorAll('.filter-dropdown').forEach(d => {
-                d.classList.remove('active');
-            });
-            
-            filterProjects();
-        });
-    }
-
-    // Close dropdowns on outside click
-    document.addEventListener('click', (e) => {
-        if (!e.target.closest('.filter-dropdown')) {
-            document.querySelectorAll('.filter-dropdown').forEach(d => {
-                d.classList.remove('active');
-            });
-        }
     });
 
     // Initial filter
@@ -521,8 +482,9 @@ function initProjectFilters() {
 }
 
 function filterProjects() {
-    const projectCards = document.querySelectorAll('.project-card');
+    const projectCards = document.querySelectorAll('.project-card-3d, .project-card');
     const countElement = document.getElementById('count-number');
+    const noProjects = document.getElementById('no-projects');
     let visibleCount = 0;
 
     projectCards.forEach(card => {
@@ -540,15 +502,21 @@ function filterProjects() {
                            card.querySelector('p')?.textContent.toLowerCase().includes(activeFilters.search);
 
         if (marketMatch && serviceMatch && locationMatch && searchMatch) {
+            card.style.display = '';
             card.classList.remove('hidden');
             visibleCount++;
         } else {
+            card.style.display = 'none';
             card.classList.add('hidden');
         }
     });
 
     if (countElement) {
         countElement.textContent = visibleCount;
+    }
+
+    if (noProjects) {
+        noProjects.style.display = visibleCount === 0 ? 'block' : 'none';
     }
 }
 
