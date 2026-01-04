@@ -6753,7 +6753,8 @@ textarea:focus {
     .scroll-progress,
     .back-to-top,
     .floating-quick-access,
-    .qa-chat-widget {
+    .qa-chat-widget,
+    .projects-chat-widget {
         display: none;
     }
 
