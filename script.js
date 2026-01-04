@@ -2705,7 +2705,7 @@ function initQAChatWidget() {
         // Add user question
         const questionDiv = document.createElement('div');
         questionDiv.className = 'qa-message qa-user-message';
-        questionDiv.innerHTML = <p><strong>You:</strong> </p>;
+        questionDiv.innerHTML = `<p><strong>You:</strong> ${question}</p>`;
         chatContent.appendChild(questionDiv);
         
         // Scroll to bottom
@@ -2718,7 +2718,7 @@ function initQAChatWidget() {
         setTimeout(() => {
             const answerDiv = document.createElement('div');
             answerDiv.className = 'qa-message qa-bot-message';
-            answerDiv.innerHTML = <p><strong>Branovis Forge:</strong> </p>;
+            answerDiv.innerHTML = `<p><strong>Branovis Forge:</strong> ${answer}</p>`;
             chatContent.appendChild(answerDiv);
             
             // Scroll to bottom
@@ -2797,7 +2797,7 @@ function initProjectsChatWidget() {
     function displayProjectInfo(type, info) {
         const messageDiv = document.createElement('div');
         messageDiv.className = 'qa-message qa-bot-message';
-        messageDiv.innerHTML = <p><strong>Branovis Forge:</strong> </p>;
+        messageDiv.innerHTML = `<p><strong>Branovis Forge:</strong> ${info}</p>`;
         chatContent.appendChild(messageDiv);
         chatContent.scrollTop = chatContent.scrollHeight;
     }
@@ -2806,7 +2806,7 @@ function initProjectsChatWidget() {
     function handleProjectQuestion(question) {
         const questionDiv = document.createElement('div');
         questionDiv.className = 'qa-message qa-user-message';
-        questionDiv.innerHTML = <p><strong>You:</strong> </p>;
+        questionDiv.innerHTML = `<p><strong>You:</strong> ${question}</p>`;
         chatContent.appendChild(questionDiv);
         chatContent.scrollTop = chatContent.scrollHeight;
         
@@ -2831,7 +2831,7 @@ function initProjectsChatWidget() {
         setTimeout(() => {
             const answerDiv = document.createElement('div');
             answerDiv.className = 'qa-message qa-bot-message';
-            answerDiv.innerHTML = <p><strong>Branovis Forge:</strong> </p>;
+            answerDiv.innerHTML = `<p><strong>Branovis Forge:</strong> ${response}</p>`;
             chatContent.appendChild(answerDiv);
             chatContent.scrollTop = chatContent.scrollHeight;
         }, 500);
