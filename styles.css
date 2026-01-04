@@ -2695,7 +2695,7 @@ p {
    FAQ Section
    =========================================== */
 .faq.section {
-    background: #FFFFFF;
+    background: var(--accent1);
 }
 
 .faq-list {
@@ -2704,14 +2704,14 @@ p {
 }
 
 .faq-item {
-    background: #FFFFFF;
+    background: var(--accent1);
     border-radius: 0.5rem;
     margin-bottom: 1rem;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    box-shadow: var(--shadow-md);
     overflow: hidden;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
-    border: 1px solid rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(247, 184, 1, 0.1);
     transform-style: preserve-3d;
     perspective: 1000px;
 }
@@ -2736,8 +2736,8 @@ p {
 
 .faq-item:hover {
     transform: translateX(5px) rotateY(2deg) translateZ(10px);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15), 0 0 15px rgba(247, 184, 1, 0.1);
-    border-color: rgba(247, 184, 1, 0.2);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3), 0 0 15px rgba(247, 184, 1, 0.2);
+    border-color: rgba(247, 184, 1, 0.3);
 }
 
 .faq-item.active {
@@ -2761,11 +2761,11 @@ p {
 }
 
 .faq-question {
-    color: var(--text-dark);
+    color: var(--text-light);
 }
 
 .faq-question:hover {
-    background: rgba(247, 184, 1, 0.05);
+    background: rgba(247, 184, 1, 0.1);
 }
 
 .faq-icon {
@@ -2796,9 +2796,9 @@ p {
 
 .faq-answer p {
     padding: 0 1.5rem 1.25rem;
-    color: var(--text-dark);
+    color: var(--text-light);
     line-height: 1.8;
-    opacity: 0.8;
+    opacity: 0.9;
 }
 
 /* ===========================================
