@@ -994,45 +994,21 @@ function showBlogPostModal(title, postId) {
     // Create modal
     const modal = document.createElement('div');
     modal.className = 'blog-modal';
-    modal.style.cssText = `
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.8);
-        z-index: 10000;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 2rem;
-        overflow-y: auto;
-    `;
     
     const modalContent = document.createElement('div');
-    modalContent.style.cssText = `
-        background: white;
-        border-radius: 1rem;
-        max-width: 800px;
-        width: 100%;
-        max-height: 90vh;
-        overflow-y: auto;
-        padding: 2rem;
-        position: relative;
-        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-    `;
+    modalContent.className = 'blog-modal-content';
     
     modalContent.innerHTML = `
-        <button class="blog-modal-close" style="position: absolute; top: 1rem; right: 1rem; background: none; border: none; font-size: 2rem; cursor: pointer; color: var(--accent1);">&times;</button>
-        <div class="blog-modal-header" style="margin-bottom: 2rem;">
-            <span class="blog-modal-category" style="display: inline-block; padding: 0.5rem 1rem; background: rgba(247, 184, 1, 0.1); color: var(--secondary); border-radius: 2rem; font-size: 0.875rem; font-weight: 600; margin-bottom: 1rem;">${post.category}</span>
-            <h2 style="font-size: 2rem; margin-bottom: 1rem; color: var(--primary);">${post.title}</h2>
-            <div style="display: flex; gap: 1.5rem; color: var(--accent1); font-size: 0.875rem;">
-                <span>${post.date}</span>
-                <span>${post.readTime}</span>
+        <button class="blog-modal-close">&times;</button>
+        <div class="blog-modal-header">
+            <span class="blog-modal-category">${post.category}</span>
+            <h2>${post.title}</h2>
+            <div class="blog-modal-meta">
+                <span>📅 ${post.date}</span>
+                <span>⏱️ ${post.readTime}</span>
             </div>
         </div>
-        <div class="blog-modal-body" style="line-height: 1.8; color: var(--accent1);">
+        <div class="blog-modal-body">
             ${post.content}
         </div>
     `;
