@@ -884,7 +884,8 @@ p {
     .hero {
         min-height: 100vh;
         padding: 6rem 0 4rem;
-        padding-top: calc(80px + 10rem);
+        padding-top: calc(80px + 12rem);
+        margin-top: 0;
     }
 }
 
@@ -1058,7 +1059,8 @@ p {
     .hero {
         min-height: 80vh;
         padding: 8rem 0 3rem;
-        padding-top: calc(80px + 10rem);
+        padding-top: calc(80px + 12rem);
+        margin-top: 0;
     }
 }
 
@@ -3497,6 +3499,24 @@ p {
     display: flex;
     align-items: center;
     margin-top: 0;
+}
+
+@media (max-width: 768px) {
+    .projects-hero-section {
+        padding-top: calc(80px + 12rem);
+        padding-bottom: 4rem;
+        min-height: 50vh;
+        margin-top: 0;
+    }
+}
+
+@media (max-width: 640px) {
+    .projects-hero-section {
+        padding-top: calc(80px + 12rem);
+        padding-bottom: 3rem;
+        min-height: 45vh;
+        margin-top: 0;
+    }
 }
 
 .projects-hero::before {
