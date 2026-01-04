@@ -3485,6 +3485,62 @@ p {
     padding: 4rem 0;
 }
 
+/* Team Section Header - Clean & Elegant Design */
+.team-section-header {
+    text-align: center;
+    margin-bottom: 4rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 1rem;
+}
+
+.team-main-title {
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 800;
+    color: var(--text-dark);
+    margin-bottom: 1rem;
+    line-height: 1.2;
+    font-family: 'Poppins', 'Inter', sans-serif;
+    letter-spacing: -0.02em;
+    position: relative;
+    display: inline-block;
+}
+
+.team-main-title::after {
+    content: '';
+    position: absolute;
+    bottom: -0.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, transparent, var(--secondary), transparent);
+    border-radius: 2px;
+}
+
+.team-main-subtitle {
+    font-size: 1.125rem;
+    line-height: 1.7;
+    color: var(--text-muted);
+    font-weight: 400;
+    margin-top: 1.5rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media (max-width: 768px) {
+    .team-section-header {
+        margin-bottom: 3rem;
+    }
+    
+    .team-main-subtitle {
+        font-size: 1rem;
+        line-height: 1.6;
+    }
+}
+
 /* ===========================================
    Projects Section - 2026 Redesign
    =========================================== */
