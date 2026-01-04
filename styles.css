@@ -878,6 +878,7 @@ p {
     .hero {
         min-height: 100vh;
         padding: 6rem 0 4rem;
+        padding-top: calc(70px + 4rem);
     }
 }
 
@@ -1050,7 +1051,8 @@ p {
 @media (max-width: 640px) {
     .hero {
         min-height: 80vh;
-        padding: 5rem 0 3rem;
+        padding: 8rem 0 3rem;
+        padding-top: calc(70px + 4rem);
     }
 }
 
