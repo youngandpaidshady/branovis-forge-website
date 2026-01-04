@@ -4327,6 +4327,17 @@ p {
     margin-bottom: 1rem;
 }
 
+.blog-date {
+    color: var(--secondary);
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.blog-date:hover {
+    color: #ffd700;
+    transform: translateX(2px);
+}
+
 .blog-card-title {
     font-size: 1.25rem;
     margin-bottom: 0.75rem;
