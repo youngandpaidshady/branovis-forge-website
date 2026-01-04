@@ -37,6 +37,7 @@ function initAllScripts() {
     initContactForm();
     initProjectFilters();
     initProjectModal();
+    initConstructionMaterialsRain();
     initBlogFilters();
     initBlogReadMore();
     initLogoAnimations();
