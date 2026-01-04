@@ -331,16 +331,16 @@
         </section>
 
         <!-- Featured Projects Section -->
-        <section class="featured-projects section">
-            <div class="construction-pattern-bg"></div>
+        <section class="featured-projects section" id="featured-projects" aria-label="Featured Construction Projects">
+            <div class="construction-pattern-bg" aria-hidden="true"></div>
             <div class="container">
                 <div class="section-header">
                     <span class="section-tag">Our Work</span>
                     <h2 class="section-title featured-projects-title-black">Featured Projects</h2>
                     <p class="section-subtitle">A glimpse into our portfolio of successful projects</p>
                 </div>
-                <div class="projects-grid">
-                    <div class="project-card" data-industry="residential" data-service="remodeling" data-location="atlanta">
+                <div class="projects-grid" role="list" itemscope itemtype="https://schema.org/ItemList">
+                    <article class="project-card" data-industry="residential" data-service="remodeling" data-location="atlanta" role="listitem" itemscope itemtype="https://schema.org/CreativeWork">
                         <div class="project-image">
                             <img src="https://images.unsplash.com/photo-1556912173-5d9136c0d2e3?w=800&h=600&fit=crop" alt="Modern kitchen remodeling project by Branovis Forge - Contemporary design with premium finishes and quality craftsmanship" loading="lazy" width="800" height="600">
                             <div class="project-overlay">
@@ -359,8 +359,8 @@
                                 <span>Location: Atlanta, GA</span>
                             </div>
                         </div>
-                    </div>
-                    <div class="project-card" data-industry="healthcare" data-service="new-construction" data-location="charlotte">
+                    </article>
+                    <article class="project-card" data-industry="healthcare" data-service="new-construction" data-location="charlotte" role="listitem" itemscope itemtype="https://schema.org/CreativeWork">
                         <div class="project-image">
                             <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=800&h=600&fit=crop" alt="Commercial construction project - Healthcare facility expansion by Branovis Forge Remodelling LLC" loading="lazy" width="800" height="600">
                             <div class="project-overlay">
@@ -379,8 +379,8 @@
                                 <span>Size: 120,000 sq ft</span>
                             </div>
                         </div>
-                    </div>
-                    <div class="project-card" data-industry="hospitality" data-service="new-construction" data-location="miami">
+                    </article>
+                    <article class="project-card" data-industry="hospitality" data-service="new-construction" data-location="miami" role="listitem" itemscope itemtype="https://schema.org/CreativeWork">
                         <div class="project-image">
                             <img src="https://images.unsplash.com/photo-1564501049412-61c2a3083791?w=800&h=600&fit=crop" alt="Luxury hospitality construction project - Hotel building by Branovis Forge commercial construction team" loading="lazy" width="800" height="600">
                             <div class="project-overlay">
@@ -408,15 +408,16 @@
         </section>
 
         <!-- Testimonials Section -->
-        <section class="testimonials section" id="testimonials">
-            <div class="construction-pattern-bg"></div>
+        <section class="testimonials section" id="testimonials" aria-label="Client Testimonials and Reviews">
+            <div class="construction-pattern-bg" aria-hidden="true"></div>
             <div class="container">
                 <div class="section-header">
                     <span class="section-tag">Client Reviews</span>
                     <h2 class="section-title">What Our Clients Say</h2>
+                    <p class="section-subtitle">Real feedback from our satisfied clients across residential and commercial projects</p>
                 </div>
-                <div class="testimonials-grid">
-                    <div class="testimonial-card">
+                <div class="testimonials-grid" role="list" itemscope itemtype="https://schema.org/ItemList">
+                    <article class="testimonial-card" role="listitem" itemscope itemtype="https://schema.org/Review">
                         <div class="testimonial-rating">★★★★★</div>
                         <p class="testimonial-text">"Honestly, I was really nervous about doing a major kitchen renovation. We'd heard horror stories from friends about contractors who disappeared mid-project. But Branovis and his crew? Totally different experience. They showed up on time every single day, kept the place clean, and actually listened when I changed my mind about the backsplash (twice!). The kitchen looks amazing - better than I even imagined. Worth every penny."</p>
                         <div class="testimonial-author">
@@ -431,9 +432,9 @@
                             </div>
                             <p class="reply-text">Thank you so much, Jennifer! We truly appreciate your patience with the backsplash changes - that's exactly why we build flexibility into our process. Your kitchen turned out beautiful, and we're thrilled you're happy with the results. Enjoy cooking in your new space!</p>
                         </div>
-                    </div>
+                    </article>
                     
-                    <div class="testimonial-card">
+                    <article class="testimonial-card" role="listitem" itemscope itemtype="https://schema.org/Review">
                         <div class="testimonial-rating">★★★★★</div>
                         <p class="testimonial-text">"We needed to renovate our office space while keeping the business running. Branovis Forge Remodelling made it happen seamlessly. They worked nights and weekends when needed, kept disruptions to a minimum, and finished ahead of schedule. The quality of work is top-notch, and our employees love the new space. Professional team from start to finish."</p>
                         <div class="testimonial-author">
@@ -448,9 +449,9 @@
                             </div>
                             <p class="reply-text">Robert, thank you for trusting us with your commercial renovation. We know how critical it is to keep business operations running smoothly during construction, and we're glad we could deliver without disrupting your workflow. Thrilled to hear your team is enjoying the new workspace!</p>
                         </div>
-                    </div>
+                    </article>
                     
-                    <div class="testimonial-card">
+                    <article class="testimonial-card" role="listitem" itemscope itemtype="https://schema.org/Review">
                         <div class="testimonial-rating">★★★★★</div>
                         <p class="testimonial-text">"As a hospital administrator, I can't stress enough how important it was that the expansion project didn't disrupt patient care. Branovis and his team were phenomenal - they coordinated everything perfectly, maintained our sterile environments, and even finished a week early. The new wing looks incredible and the construction quality is exactly what we needed for a medical facility."</p>
                         <div class="testimonial-author">
@@ -465,9 +466,9 @@
                             </div>
                             <p class="reply-text">Dr. Williams, working on a healthcare facility requires extra care and attention, and we're honored you chose us. Your team's collaboration made all the difference in delivering a project that meets healthcare standards while maintaining operations. We're proud of what we accomplished together!</p>
                         </div>
-                    </div>
+                    </article>
                     
-                    <div class="testimonial-card">
+                    <article class="testimonial-card" role="listitem" itemscope itemtype="https://schema.org/Review">
                         <div class="testimonial-rating">★★★★★</div>
                         <p class="testimonial-text">"We did a complete home renovation with Branovis Forge and honestly, I wish we'd found them sooner. The project manager kept us updated every step of the way, and when we hit a snag with the plumbing (old house problems), they handled it without drama or extra charges. The craftsmanship is outstanding - you can tell they take real pride in their work. Our home feels brand new!"</p>
                         <div class="testimonial-author">
@@ -482,9 +483,9 @@
                             </div>
                             <p class="reply-text">Michael and Sarah, thank you for your kind words! Old homes always have surprises, and I'm glad our team handled the plumbing issue smoothly. We're so happy you love your renovated home. Enjoy making new memories in your beautiful space!</p>
                         </div>
-                    </div>
+                    </article>
                     
-                    <div class="testimonial-card">
+                    <article class="testimonial-card" role="listitem" itemscope itemtype="https://schema.org/Review">
                         <div class="testimonial-rating">★★★★★</div>
                         <p class="testimonial-text">"Best bathroom renovation experience ever! From design to finish, everything was smooth. The team was respectful of our home, cleaned up every day, and the tile work is absolutely flawless. We get so many compliments on it. Already planning our next project with them."</p>
                         <div class="testimonial-author">
@@ -499,9 +500,9 @@
                             </div>
                             <p class="reply-text">Patricia, we're thrilled you love your new bathroom! Our tile installers are true artists, and they'll be excited to hear the compliments. Looking forward to working with you on your next project!</p>
                         </div>
-                    </div>
+                    </article>
                     
-                    <div class="testimonial-card">
+                    <article class="testimonial-card" role="listitem" itemscope itemtype="https://schema.org/Review">
                         <div class="testimonial-rating">★★★★★</div>
                         <p class="testimonial-text">"Built our dream home with Branovis Forge Remodelling. The process was transparent, communication was excellent, and they stayed within our budget. There were a few delays due to weather, but they kept us informed and adjusted the schedule accordingly. The quality is exceptional - every detail matters to them. We couldn't be happier."</p>
                         <div class="testimonial-author">
@@ -516,9 +517,9 @@
                             </div>
                             <p class="reply-text">David and Lisa, thank you for your patience with the weather delays. Building a custom home is a big undertaking, and we're so glad you're happy with the result. We appreciate your trust in us throughout the entire process. Enjoy your beautiful new home!</p>
                         </div>
-                    </div>
+                    </article>
                     
-                    <div class="testimonial-card">
+                    <article class="testimonial-card" role="listitem" itemscope itemtype="https://schema.org/Review">
                         <div class="testimonial-rating">★★★★★</div>
                         <p class="testimonial-text">"They renovated our restaurant while we stayed open. That's impressive! They worked around our hours, protected our equipment, and the new design has brought in so many compliments. Business has actually increased since the renovation. Great work, fair pricing, and they actually care about your success."</p>
                         <div class="testimonial-author">
@@ -533,9 +534,9 @@
                             </div>
                             <p class="reply-text">Chef Williams, we're so happy to hear business has picked up! Working around operating hours is challenging, but your team made it work. The new space looks fantastic. Thank you for the opportunity to work with you!</p>
                         </div>
-                    </div>
+                    </article>
                     
-                    <div class="testimonial-card">
+                    <article class="testimonial-card" role="listitem" itemscope itemtype="https://schema.org/Review">
                         <div class="testimonial-rating">★★★★★</div>
                         <p class="testimonial-text">"Added a second story to our home. Massive project, but Branovis and his team made it feel manageable. They answered all our questions (and there were a lot!), provided regular updates, and the end result is amazing. Our family now has the space we needed. Would definitely recommend to anyone considering a major addition."</p>
                         <div class="testimonial-author">
