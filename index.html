@@ -332,7 +332,7 @@
             <div class="container">
                 <div class="section-header">
                     <span class="section-tag">Our Work</span>
-                    <h2 class="section-title">Featured Projects</h2>
+                    <h2 class="section-title featured-projects-title-black">Featured Projects</h2>
                     <p class="section-subtitle">A glimpse into our portfolio of successful projects</p>
                 </div>
                 <div class="projects-grid">
@@ -944,6 +944,51 @@
             <div class="qa-chat-input-wrapper">
                 <input type="text" class="qa-chat-input" id="qa-chat-input" placeholder="Type your question here..." />
                 <button class="qa-send-btn" id="qa-send-btn" aria-label="Send question">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="22" y1="2" x2="11" y2="13"></line>
+                        <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Our Work Featured Projects Chat Box Widget -->
+    <div class="projects-chat-widget" id="projects-chat-widget">
+        <button class="projects-chat-toggle" id="projects-chat-toggle" aria-label="Open Our Work & Featured Projects">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                <path d="M2 17l10 5 10-5"></path>
+                <path d="M2 12l10 5 10-5"></path>
+            </svg>
+            <span class="projects-badge">Our Work</span>
+        </button>
+        <div class="projects-chat-box" id="projects-chat-box">
+            <div class="projects-chat-header">
+                <h3>Our Work & Featured Projects</h3>
+                <button class="projects-close" id="projects-close" aria-label="Close chat">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+            <div class="projects-chat-content" id="projects-chat-content">
+                <div class="projects-welcome">
+                    <p>🏗️ Explore our featured projects! Ask about our work, project types, or view specific portfolios.</p>
+                </div>
+                <div class="projects-quick-questions">
+                    <p class="projects-quick-title">Quick Options:</p>
+                    <button class="projects-quick-btn" data-action="residential">🏠 Residential Projects</button>
+                    <button class="projects-quick-btn" data-action="commercial">🏢 Commercial Projects</button>
+                    <button class="projects-quick-btn" data-action="healthcare">🏥 Healthcare Projects</button>
+                    <button class="projects-quick-btn" data-action="hospitality">🏨 Hospitality Projects</button>
+                    <button class="projects-quick-btn" data-action="view-all">📋 View All Projects</button>
+                </div>
+            </div>
+            <div class="projects-chat-input-wrapper">
+                <input type="text" class="projects-chat-input" id="projects-chat-input" placeholder="Ask about our projects..." />
+                <button class="projects-send-btn" id="projects-send-btn" aria-label="Send question">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <line x1="22" y1="2" x2="11" y2="13"></line>
                         <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>

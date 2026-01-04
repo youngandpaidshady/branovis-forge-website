@@ -35,6 +35,7 @@ function initAllScripts() {
     initFloatingQuickAccess();
     initFAQ();
     initQAChatWidget();
+    initProjectsChatWidget();
     initContactForm();
     initProjectFilters();
     initProjectModal();
@@ -2721,6 +2722,117 @@ function initQAChatWidget() {
             chatContent.appendChild(answerDiv);
             
             // Scroll to bottom
+            chatContent.scrollTop = chatContent.scrollHeight;
+        }, 500);
+    }
+}
+
+// ===========================================
+// Our Work Featured Projects Chat Widget
+// ===========================================
+function initProjectsChatWidget() {
+    const chatWidget = document.getElementById('projects-chat-widget');
+    const chatToggle = document.getElementById('projects-chat-toggle');
+    const chatBox = document.getElementById('projects-chat-box');
+    const chatClose = document.getElementById('projects-close');
+    const chatInput = document.getElementById('projects-chat-input');
+    const sendBtn = document.getElementById('projects-send-btn');
+    const quickBtns = document.querySelectorAll('.projects-quick-btn');
+    const chatContent = document.getElementById('projects-chat-content');
+    
+    if (!chatWidget || !chatToggle || !chatBox) return;
+    
+    // Project information mapping
+    const projectInfo = {
+        'residential': 'Our residential projects include stunning kitchen remodels, bathroom renovations, whole-home makeovers, and custom additions. We\'ve completed over 200 residential projects with 98% client satisfaction. View our residential portfolio for inspiration!',
+        'commercial': 'We specialize in commercial construction including office buildings, retail spaces, warehouses, and mixed-use developments. Our commercial projects range from 5,000 to 500,000 sq ft. Check out our commercial portfolio!',
+        'healthcare': 'Our healthcare construction expertise includes hospitals, medical offices, clinics, and specialized healthcare facilities. We understand the unique requirements of healthcare construction and deliver compliant, state-of-the-art facilities.',
+        'hospitality': 'From luxury hotels to boutique inns, we\'ve built exceptional hospitality spaces. Our hospitality projects feature premium amenities, conference facilities, and stunning designs that create memorable guest experiences.',
+        'view-all': 'Explore our complete portfolio! We have projects across residential, commercial, healthcare, hospitality, and industrial sectors. Visit our Projects page to see all our work and filter by industry or service type.'
+    };
+    
+    // Toggle chat box
+    chatToggle.addEventListener('click', () => {
+        chatWidget.classList.toggle('active');
+    });
+    
+    // Close chat box
+    chatClose.addEventListener('click', () => {
+        chatWidget.classList.remove('active');
+    });
+    
+    // Handle quick action buttons
+    quickBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const action = btn.getAttribute('data-action');
+            if (action === 'view-all') {
+                window.location.href = 'projects.html';
+            } else if (projectInfo[action]) {
+                displayProjectInfo(action, projectInfo[action]);
+            }
+        });
+    });
+    
+    // Handle send button
+    sendBtn.addEventListener('click', () => {
+        const question = chatInput.value.trim();
+        if (question) {
+            handleProjectQuestion(question);
+            chatInput.value = '';
+        }
+    });
+    
+    // Handle Enter key in input
+    chatInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+            const question = chatInput.value.trim();
+            if (question) {
+                handleProjectQuestion(question);
+                chatInput.value = '';
+            }
+        }
+    });
+    
+    // Display project information
+    function displayProjectInfo(type, info) {
+        const messageDiv = document.createElement('div');
+        messageDiv.className = 'qa-message qa-bot-message';
+        messageDiv.innerHTML = <p><strong>Branovis Forge:</strong> </p>;
+        chatContent.appendChild(messageDiv);
+        chatContent.scrollTop = chatContent.scrollHeight;
+    }
+    
+    // Handle custom project questions
+    function handleProjectQuestion(question) {
+        const questionDiv = document.createElement('div');
+        questionDiv.className = 'qa-message qa-user-message';
+        questionDiv.innerHTML = <p><strong>You:</strong> </p>;
+        chatContent.appendChild(questionDiv);
+        chatContent.scrollTop = chatContent.scrollHeight;
+        
+        // Simple response based on keywords
+        let response = 'Thank you for your interest in our projects! ';
+        const lowerQuestion = question.toLowerCase();
+        
+        if (lowerQuestion.includes('residential') || lowerQuestion.includes('home') || lowerQuestion.includes('house')) {
+            response += projectInfo['residential'];
+        } else if (lowerQuestion.includes('commercial') || lowerQuestion.includes('business') || lowerQuestion.includes('office')) {
+            response += projectInfo['commercial'];
+        } else if (lowerQuestion.includes('healthcare') || lowerQuestion.includes('hospital') || lowerQuestion.includes('medical')) {
+            response += projectInfo['healthcare'];
+        } else if (lowerQuestion.includes('hotel') || lowerQuestion.includes('hospitality') || lowerQuestion.includes('restaurant')) {
+            response += projectInfo['hospitality'];
+        } else if (lowerQuestion.includes('portfolio') || lowerQuestion.includes('all projects') || lowerQuestion.includes('view')) {
+            response += projectInfo['view-all'];
+        } else {
+            response += 'Visit our Projects page to explore our complete portfolio. You can filter by industry, service type, or location to find exactly what you\'re looking for!';
+        }
+        
+        setTimeout(() => {
+            const answerDiv = document.createElement('div');
+            answerDiv.className = 'qa-message qa-bot-message';
+            answerDiv.innerHTML = <p><strong>Branovis Forge:</strong> </p>;
+            chatContent.appendChild(answerDiv);
             chatContent.scrollTop = chatContent.scrollHeight;
         }, 500);
     }
