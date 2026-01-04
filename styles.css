@@ -3799,7 +3799,7 @@ p {
    FAQ Section
    =========================================== */
 .faq.section {
-    background: var(--accent1);
+    background: #FFFFFF;
 }
 
 .faq-list {
