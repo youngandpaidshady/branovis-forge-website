@@ -6342,7 +6342,8 @@ textarea:focus {
     .page-loader,
     .scroll-progress,
     .back-to-top,
-    .floating-quick-access {
+    .floating-quick-access,
+    .qa-chat-widget {
         display: none;
     }
 
