@@ -38,6 +38,8 @@ function initAllScripts() {
     initProjectFilters();
     initProjectModal();
     initConstructionMaterialsRain();
+    initConstructionToolsFloating();
+    initConstructionEquipment3D();
     initBlogFilters();
     initBlogReadMore();
     initLogoAnimations();
@@ -2609,4 +2611,106 @@ function initConstructionMaterialsRain() {
     for (let i = 0; i < 20; i++) {
         setTimeout(() => createParticle(), i * 50);
     }
+}
+
+// ===========================================
+// Construction Tools Floating Animation
+// ===========================================
+function initConstructionToolsFloating() {
+    // Add floating construction tools to various sections
+    const sections = document.querySelectorAll('.section, .hero, .about-hero-section, .services-hero-section, .projects-hero-section, .team-hero-section, .blog-hero-section, .contact-hero-section');
+    
+    sections.forEach((section, index) => {
+        if (section.querySelector('.construction-tools-container')) return; // Already initialized
+        
+        const toolsContainer = document.createElement('div');
+        toolsContainer.className = 'construction-tools-container';
+        toolsContainer.style.cssText = `
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            pointer-events: none;
+            z-index: 1;
+        `;
+        
+        section.style.position = 'relative';
+        section.appendChild(toolsContainer);
+        
+        // Construction tools emojis
+        const tools = ['🔨', '⚒️', '🪚', '🔧', '⛏️', '🪓', '📐', '🔩', '⚙️', '🧰', '🏗️', '🔲'];
+        const toolCount = Math.min(8, Math.floor(window.innerWidth / 150)); // Responsive count
+        
+        for (let i = 0; i < toolCount; i++) {
+            const tool = document.createElement('div');
+            tool.className = 'floating-construction-tool';
+            tool.textContent = tools[Math.floor(Math.random() * tools.length)];
+            tool.style.cssText = `
+                position: absolute;
+                font-size: ${1.5 + Math.random() * 1}rem;
+                opacity: ${0.2 + Math.random() * 0.3};
+                left: ${Math.random() * 100}%;
+                top: ${Math.random() * 100}%;
+                animation: floatTool3D ${8 + Math.random() * 4}s ease-in-out infinite;
+                animation-delay: ${Math.random() * 2}s;
+                transform-style: preserve-3d;
+                will-change: transform;
+            `;
+            
+            toolsContainer.appendChild(tool);
+        }
+    });
+}
+
+// ===========================================
+// Construction Equipment 3D Effects
+// ===========================================
+function initConstructionEquipment3D() {
+    // Add 3D construction equipment to hero sections
+    const heroSections = document.querySelectorAll('.hero, .about-hero-section, .services-hero-section, .projects-hero-section, .team-hero-section, .blog-hero-section, .contact-hero-section');
+    
+    heroSections.forEach(hero => {
+        if (hero.querySelector('.construction-equipment-3d')) return;
+        
+        const equipmentContainer = document.createElement('div');
+        equipmentContainer.className = 'construction-equipment-3d';
+        equipmentContainer.style.cssText = `
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            pointer-events: none;
+            z-index: 1;
+        `;
+        
+        hero.style.position = 'relative';
+        hero.appendChild(equipmentContainer);
+        
+        // Create construction equipment elements
+        const equipmentTypes = ['🏗️', '🚧', '🔨', '⚒️', '🪚', '🧱', '📐', '🔩'];
+        const count = Math.min(6, Math.floor(window.innerWidth / 200));
+        
+        for (let i = 0; i < count; i++) {
+            const equipment = document.createElement('div');
+            equipment.className = 'construction-equipment-item';
+            equipment.textContent = equipmentTypes[Math.floor(Math.random() * equipmentTypes.length)];
+            equipment.style.cssText = `
+                position: absolute;
+                font-size: ${2 + Math.random() * 2}rem;
+                opacity: ${0.15 + Math.random() * 0.2};
+                left: ${Math.random() * 100}%;
+                top: ${Math.random() * 100}%;
+                animation: equipmentRotate3D ${12 + Math.random() * 8}s linear infinite;
+                animation-delay: ${Math.random() * 3}s;
+                transform-style: preserve-3d;
+                will-change: transform;
+            `;
+            
+            equipmentContainer.appendChild(equipment);
+        }
+    });
 }
