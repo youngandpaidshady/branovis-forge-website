@@ -1912,6 +1912,8 @@ p {
     line-height: 1.6;
     animation: aboutSubtitleFloat3D 6s ease-in-out infinite;
     transform-style: preserve-3d;
+    max-width: 800px;
+    margin: 0 auto;
 }
 
 @keyframes aboutSubtitleFloat3D {
@@ -1920,6 +1922,244 @@ p {
     }
     50% {
         transform: translateY(-6px) translateZ(12px);
+    }
+}
+
+/* ===========================================
+   Services Hero Section - 3D
+   =========================================== */
+.services-hero-section {
+    background: linear-gradient(135deg, var(--primary) 0%, #1A1F2E 50%, var(--primary) 100%);
+    padding: 8rem 0 6rem;
+    position: relative;
+    overflow: hidden;
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+}
+
+.services-hero-3d-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.services-hero-3d-background::before,
+.services-hero-3d-background::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(247, 184, 1, 0.15) 0%, transparent 70%);
+    animation: servicesHeroFloat3D 25s ease-in-out infinite;
+    transform-style: preserve-3d;
+}
+
+.services-hero-3d-background::before {
+    width: 500px;
+    height: 500px;
+    top: 10%;
+    right: 10%;
+    animation-delay: 0s;
+}
+
+.services-hero-3d-background::after {
+    width: 400px;
+    height: 400px;
+    bottom: 20%;
+    left: 15%;
+    animation-delay: 8s;
+}
+
+@keyframes servicesHeroFloat3D {
+    0%, 100% {
+        transform: translate(0, 0) translateZ(0) rotateZ(0deg);
+    }
+    33% {
+        transform: translate(-60px, -60px) translateZ(40px) rotateZ(-120deg);
+    }
+    66% {
+        transform: translate(40px, 40px) translateZ(-30px) rotateZ(-240deg);
+    }
+}
+
+.services-hero-content-3d {
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+}
+
+.services-hero-title-3d {
+    font-size: 5rem;
+    font-weight: 900;
+    color: #FFFFFF;
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.03em;
+    font-family: 'Poppins', 'Inter', sans-serif;
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    animation: servicesTitleFloat3D 8s ease-in-out infinite;
+    transform-style: preserve-3d;
+    line-height: 1.1;
+}
+
+@keyframes servicesTitleFloat3D {
+    0%, 100% {
+        transform: translateY(0) translateZ(0) rotateX(0deg);
+    }
+    25% {
+        transform: translateY(-12px) translateZ(25px) rotateX(4deg);
+    }
+    50% {
+        transform: translateY(-6px) translateZ(12px) rotateX(0deg);
+    }
+    75% {
+        transform: translateY(-10px) translateZ(20px) rotateX(-3deg);
+    }
+}
+
+.services-hero-subtitle-3d {
+    font-size: 1.75rem;
+    color: rgba(255, 255, 255, 0.95);
+    font-weight: 500;
+    line-height: 1.6;
+    animation: servicesSubtitleFloat3D 6s ease-in-out infinite;
+    transform-style: preserve-3d;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+@keyframes servicesSubtitleFloat3D {
+    0%, 100% {
+        transform: translateY(0) translateZ(0);
+    }
+    50% {
+        transform: translateY(-6px) translateZ(12px);
+    }
+}
+
+/* Excellence in Every Project - Black Styling */
+.excellence-title {
+    color: #000000 !important;
+    font-size: 2.5rem;
+    font-weight: 800;
+    font-family: 'Poppins', 'Inter', sans-serif;
+    text-shadow: 
+        0 0 10px rgba(0, 0, 0, 0.3),
+        0 0 20px rgba(0, 0, 0, 0.2),
+        0 2px 4px rgba(0, 0, 0, 0.4),
+        2px 2px 0px rgba(247, 184, 1, 0.1),
+        -2px -2px 0px rgba(247, 184, 1, 0.1);
+    animation: excellenceTitleEdge 4s ease-in-out infinite;
+    position: relative;
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+}
+
+.excellence-title::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 2px solid rgba(247, 184, 1, 0.3);
+    border-radius: 0.5rem;
+    animation: excellenceTitleBorder 3s ease-in-out infinite;
+    pointer-events: none;
+}
+
+.excellence-title::after {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(135deg, rgba(247, 184, 1, 0.1) 0%, transparent 50%, rgba(247, 184, 1, 0.1) 100%);
+    border-radius: 0.5rem;
+    z-index: -1;
+    animation: excellenceTitleGlow 5s ease-in-out infinite;
+    filter: blur(8px);
+}
+
+@keyframes excellenceTitleEdge {
+    0%, 100% {
+        text-shadow: 
+            0 0 10px rgba(0, 0, 0, 0.3),
+            0 0 20px rgba(0, 0, 0, 0.2),
+            0 2px 4px rgba(0, 0, 0, 0.4),
+            2px 2px 0px rgba(247, 184, 1, 0.1),
+            -2px -2px 0px rgba(247, 184, 1, 0.1);
+    }
+    50% {
+        text-shadow: 
+            0 0 15px rgba(0, 0, 0, 0.4),
+            0 0 30px rgba(0, 0, 0, 0.3),
+            0 3px 6px rgba(0, 0, 0, 0.5),
+            3px 3px 0px rgba(247, 184, 1, 0.2),
+            -3px -3px 0px rgba(247, 184, 1, 0.2),
+            0 0 20px rgba(247, 184, 1, 0.15);
+    }
+}
+
+@keyframes excellenceTitleBorder {
+    0%, 100% {
+        border-color: rgba(247, 184, 1, 0.3);
+        box-shadow: 0 0 10px rgba(247, 184, 1, 0.2);
+    }
+    50% {
+        border-color: rgba(247, 184, 1, 0.6);
+        box-shadow: 0 0 20px rgba(247, 184, 1, 0.4);
+    }
+}
+
+@keyframes excellenceTitleGlow {
+    0%, 100% {
+        opacity: 0.3;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.6;
+        transform: scale(1.05);
+    }
+}
+
+@media (max-width: 768px) {
+    .services-hero-title-3d {
+        font-size: 3rem;
+    }
+    
+    .services-hero-subtitle-3d {
+        font-size: 1.25rem;
+    }
+    
+    .excellence-title {
+        font-size: 1.75rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .services-hero-section {
+        padding: 6rem 0 4rem;
+        min-height: 50vh;
+    }
+    
+    .services-hero-title-3d {
+        font-size: 2.5rem;
+    }
+    
+    .services-hero-subtitle-3d {
+        font-size: 1.125rem;
+    }
+    
+    .excellence-title {
+        font-size: 1.5rem;
     }
 }
 
