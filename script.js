@@ -40,6 +40,9 @@ function initAllScripts() {
     initConstructionMaterialsRain();
     initConstructionToolsFloating();
     initConstructionEquipment3D();
+    initConstructionBeams3D();
+    initConstructionParticles3D();
+    initConstructionIconsFloating();
     initBlogFilters();
     initBlogReadMore();
     initLogoAnimations();
@@ -2692,7 +2695,7 @@ function initConstructionEquipment3D() {
         
         // Create construction equipment elements
         const equipmentTypes = ['🏗️', '🚧', '🔨', '⚒️', '🪚', '🧱', '📐', '🔩'];
-        const count = Math.min(6, Math.floor(window.innerWidth / 200));
+        const count = Math.min(8, Math.floor(window.innerWidth / 150));
         
         for (let i = 0; i < count; i++) {
             const equipment = document.createElement('div');
@@ -2711,6 +2714,154 @@ function initConstructionEquipment3D() {
             `;
             
             equipmentContainer.appendChild(equipment);
+        }
+    });
+}
+
+// ===========================================
+// Construction Beams 3D Animation
+// ===========================================
+function initConstructionBeams3D() {
+    const sections = document.querySelectorAll('.section, .hero, .about-hero-section, .services-hero-section, .projects-hero-section, .team-hero-section, .blog-hero-section, .contact-hero-section');
+    
+    sections.forEach((section, index) => {
+        if (section.querySelector('.construction-beams-3d')) return;
+        
+        const beamsContainer = document.createElement('div');
+        beamsContainer.className = 'construction-beams-3d';
+        beamsContainer.style.cssText = `
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            pointer-events: none;
+            z-index: 0;
+        `;
+        
+        section.style.position = 'relative';
+        section.appendChild(beamsContainer);
+        
+        const beamCount = Math.min(5, Math.floor(window.innerWidth / 250));
+        
+        for (let i = 0; i < beamCount; i++) {
+            const beam = document.createElement('div');
+            beam.className = 'construction-beam-3d';
+            beam.style.cssText = `
+                position: absolute;
+                width: ${20 + Math.random() * 30}px;
+                height: ${100 + Math.random() * 200}px;
+                background: linear-gradient(135deg, rgba(247, 184, 1, 0.2) 0%, rgba(247, 184, 1, 0.05) 100%);
+                border: 1px solid rgba(247, 184, 1, 0.3);
+                left: ${Math.random() * 100}%;
+                top: ${Math.random() * 100}%;
+                animation: beamFloat3D ${15 + Math.random() * 10}s ease-in-out infinite;
+                animation-delay: ${Math.random() * 5}s;
+                transform-style: preserve-3d;
+                will-change: transform;
+                border-radius: 4px;
+            `;
+            
+            beamsContainer.appendChild(beam);
+        }
+    });
+}
+
+// ===========================================
+// Construction Particles 3D
+// ===========================================
+function initConstructionParticles3D() {
+    const sections = document.querySelectorAll('.section');
+    
+    sections.forEach(section => {
+        if (section.querySelector('.construction-particles-3d')) return;
+        
+        const particlesContainer = document.createElement('div');
+        particlesContainer.className = 'construction-particles-3d';
+        particlesContainer.style.cssText = `
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            pointer-events: none;
+            z-index: 0;
+        `;
+        
+        section.style.position = 'relative';
+        section.appendChild(particlesContainer);
+        
+        const particleCount = Math.min(12, Math.floor(window.innerWidth / 100));
+        const particleTypes = ['●', '■', '▲', '◆', '★'];
+        
+        for (let i = 0; i < particleCount; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'construction-particle-3d';
+            particle.textContent = particleTypes[Math.floor(Math.random() * particleTypes.length)];
+            particle.style.cssText = `
+                position: absolute;
+                font-size: ${0.5 + Math.random() * 1}rem;
+                color: rgba(247, 184, 1, ${0.3 + Math.random() * 0.4});
+                left: ${Math.random() * 100}%;
+                top: ${Math.random() * 100}%;
+                animation: particleFloat3D ${10 + Math.random() * 8}s ease-in-out infinite;
+                animation-delay: ${Math.random() * 3}s;
+                transform-style: preserve-3d;
+                will-change: transform;
+            `;
+            
+            particlesContainer.appendChild(particle);
+        }
+    });
+}
+
+// ===========================================
+// Construction Icons Floating
+// ===========================================
+function initConstructionIconsFloating() {
+    const allSections = document.querySelectorAll('section');
+    
+    allSections.forEach(section => {
+        if (section.querySelector('.construction-icons-floating')) return;
+        
+        const iconsContainer = document.createElement('div');
+        iconsContainer.className = 'construction-icons-floating';
+        iconsContainer.style.cssText = `
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            pointer-events: none;
+            z-index: 1;
+        `;
+        
+        section.style.position = 'relative';
+        section.appendChild(iconsContainer);
+        
+        const iconCount = Math.min(6, Math.floor(window.innerWidth / 200));
+        const icons = ['🔧', '⚙️', '📐', '🔩', '⛏️', '🪓', '🪚', '🧰', '📦', '🔲'];
+        
+        for (let i = 0; i < iconCount; i++) {
+            const icon = document.createElement('div');
+            icon.className = 'construction-icon-float';
+            icon.textContent = icons[Math.floor(Math.random() * icons.length)];
+            icon.style.cssText = `
+                position: absolute;
+                font-size: ${1.5 + Math.random() * 1.5}rem;
+                opacity: ${0.2 + Math.random() * 0.3};
+                left: ${Math.random() * 100}%;
+                top: ${Math.random() * 100}%;
+                animation: iconFloat3D ${8 + Math.random() * 6}s ease-in-out infinite;
+                animation-delay: ${Math.random() * 4}s;
+                transform-style: preserve-3d;
+                will-change: transform;
+            `;
+            
+            iconsContainer.appendChild(icon);
         }
     });
 }
