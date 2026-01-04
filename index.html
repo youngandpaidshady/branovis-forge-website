@@ -814,6 +814,62 @@
         </div>
     </div>
 
+    <!-- AggregateRating Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "AggregateRating",
+        "itemReviewed": {
+            "@id": "https://www.branovisforge.com/#organization"
+        },
+        "ratingValue": "4.9",
+        "bestRating": "5",
+        "worstRating": "1",
+        "ratingCount": "127",
+        "reviewCount": "127"
+    }
+    </script>
+    
+    <!-- ItemList Schema for Featured Projects -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "item": {
+                    "@type": "CreativeWork",
+                    "name": "Modern Kitchen Remodel",
+                    "description": "Complete kitchen transformation with custom cabinetry and premium finishes",
+                    "category": "Residential Remodeling"
+                }
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "item": {
+                    "@type": "CreativeWork",
+                    "name": "Hospital Wing Expansion",
+                    "description": "120,000 sq ft medical facility addition completed while maintaining operations",
+                    "category": "Healthcare Construction"
+                }
+            },
+            {
+                "@type": "ListItem",
+                "position": 3,
+                "item": {
+                    "@type": "CreativeWork",
+                    "name": "Luxury Hotel Construction",
+                    "description": "200-room luxury hotel with premium amenities and conference facilities",
+                    "category": "Hospitality Construction"
+                }
+            }
+        ]
+    }
+    </script>
+    
     <!-- FAQ Schema -->
     <script type="application/ld+json">
     {
