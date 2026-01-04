@@ -765,6 +765,8 @@ p {
     will-change: transform;
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
+    transform-style: preserve-3d;
+    perspective: 1000px;
 }
 
 /* Subtle button hover effect */
@@ -809,9 +811,9 @@ p {
 
 .btn-primary:hover {
     background: linear-gradient(135deg, #FFC107 0%, #F7B801 50%, #ffd700 100%);
-    transform: translateY(-2px) translateZ(5px);
+    transform: translateY(-4px) translateZ(15px) rotateX(5deg) rotateY(2deg);
     box-shadow: 
-        0 8px 35px rgba(247, 184, 1, 0.5),
+        0 12px 40px rgba(247, 184, 1, 0.6),
         0 0 0 1px rgba(247, 184, 1, 0.3) inset;
     color: var(--primary);
 }
@@ -834,8 +836,8 @@ p {
 .btn-secondary:hover {
     background: rgba(46, 64, 87, 0.6);
     border-color: rgba(247, 184, 1, 0.5);
-    transform: translateY(-2px) translateZ(5px);
-    box-shadow: 0 8px 30px rgba(247, 184, 1, 0.2);
+    transform: translateY(-4px) translateZ(15px) rotateX(-5deg) rotateY(-2deg);
+    box-shadow: 0 12px 35px rgba(247, 184, 1, 0.3);
 }
 
 .btn-secondary:active {
@@ -1464,6 +1466,8 @@ p {
     max-width: 800px;
     margin-left: auto;
     margin-right: auto;
+    perspective: 1000px;
+    transform-style: preserve-3d;
 }
 
 .section-tag {
@@ -1479,8 +1483,14 @@ p {
     margin-bottom: 1rem;
     position: relative;
     overflow: hidden;
-    animation: tagShimmer 3s ease-in-out infinite;
+    animation: tagShimmer3D 4s ease-in-out infinite;
     border: 1px solid rgba(247, 184, 1, 0.2);
+    transform-style: preserve-3d;
+    transition: transform 0.3s ease;
+}
+
+.section-tag:hover {
+    transform: translateZ(10px) rotateY(5deg) scale(1.05);
 }
 
 .section-tag::before {
@@ -1499,6 +1509,25 @@ p {
     50% { box-shadow: 0 0 20px rgba(247, 184, 1, 0.6); }
 }
 
+@keyframes tagShimmer3D {
+    0%, 100% { 
+        box-shadow: 0 0 10px rgba(247, 184, 1, 0.4);
+        transform: translateZ(0) rotateY(0deg);
+    }
+    25% { 
+        box-shadow: 0 0 20px rgba(247, 184, 1, 0.6);
+        transform: translateZ(5px) rotateY(3deg);
+    }
+    50% { 
+        box-shadow: 0 0 15px rgba(247, 184, 1, 0.5);
+        transform: translateZ(8px) rotateY(0deg);
+    }
+    75% { 
+        box-shadow: 0 0 20px rgba(247, 184, 1, 0.6);
+        transform: translateZ(5px) rotateY(-3deg);
+    }
+}
+
 @keyframes tagSweep {
     0% { left: -100%; }
     100% { left: 100%; }
@@ -1507,6 +1536,13 @@ p {
 .section-title {
     margin-bottom: 1rem;
     color: var(--text-light);
+    transform-style: preserve-3d;
+    transition: transform 0.3s ease;
+    display: inline-block;
+}
+
+.section-title:hover {
+    transform: translateZ(15px) rotateX(2deg);
 }
 
 .section-subtitle {
@@ -1711,7 +1747,9 @@ p {
 .stat-item {
     padding: 1.5rem;
     position: relative;
-    transition: var(--transition);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-style: preserve-3d;
+    perspective: 1000px;
 }
 
 .stat-item::before {
@@ -1724,18 +1762,19 @@ p {
     border: 2px solid rgba(247, 184, 1, 0.2);
     border-radius: 1rem;
     opacity: 0;
-    transform: scale(0.8);
+    transform: scale(0.8) translateZ(-10px);
     transition: var(--transition-slow);
+    transform-style: preserve-3d;
 }
 
 .stat-item:hover::before {
     opacity: 1;
-    transform: scale(1.05);
+    transform: scale(1.05) translateZ(10px);
     border-color: rgba(247, 184, 1, 0.5);
 }
 
 .stat-item:hover {
-    transform: translateY(-10px) scale(1.05);
+    transform: translateY(-12px) rotateX(5deg) rotateY(-3deg) translateZ(20px) scale(1.05);
 }
 
 .stat-number {
@@ -1744,6 +1783,23 @@ p {
     color: var(--secondary);
     display: block;
     margin-bottom: 0.5rem;
+    transform-style: preserve-3d;
+    transition: transform 0.3s ease;
+    animation: statNumberFloat 3s ease-in-out infinite;
+}
+
+@keyframes statNumberFloat {
+    0%, 100% {
+        transform: translateZ(0) rotateY(0deg);
+    }
+    50% {
+        transform: translateZ(10px) rotateY(5deg);
+    }
+}
+
+.stat-item:hover .stat-number {
+    animation: none;
+    transform: translateZ(20px) rotateY(10deg) scale(1.1);
 }
 
 .stat-label {
@@ -1796,12 +1852,25 @@ p {
     border-radius: 1rem;
     overflow: hidden;
     box-shadow: var(--shadow-lg);
+    transform-style: preserve-3d;
+    perspective: 1000px;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.about-image:hover {
+    transform: rotateY(-5deg) rotateX(3deg) translateZ(20px);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
 }
 
 .about-image img {
     width: 100%;
     height: auto;
     display: block;
+    transition: transform 0.4s ease;
+}
+
+.about-image:hover img {
+    transform: scale(1.05) translateZ(10px);
 }
 
 /* ===========================================
@@ -2014,13 +2083,15 @@ p {
     border-radius: 1rem;
     overflow: hidden;
     box-shadow: var(--shadow-md);
-    transition: var(--transition);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     border: 1px solid rgba(247, 184, 1, 0.1);
+    transform-style: preserve-3d;
+    perspective: 1000px;
 }
 
 .project-card:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-md);
+    transform: translateY(-8px) rotateX(5deg) rotateY(-2deg) translateZ(20px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15), 0 0 30px rgba(247, 184, 1, 0.2);
 }
 
 .project-card.hidden {
@@ -2045,10 +2116,11 @@ p {
     height: 100%;
     object-fit: cover;
     transition: transform 0.5s ease;
+    transform-style: preserve-3d;
 }
 
 .project-card:hover .project-image img {
-    transform: scale(1.1);
+    transform: scale(1.15) translateZ(15px) rotateX(-2deg);
 }
 
 .project-overlay {
@@ -2387,12 +2459,14 @@ p {
     border-radius: 1.25rem;
     box-shadow: var(--shadow-lg);
     position: relative;
-    transition: var(--transition-slow);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     overflow: hidden;
     display: flex;
     flex-direction: column;
     border: 1px solid rgba(247, 184, 1, 0.15);
     gap: 1.5rem;
+    transform-style: preserve-3d;
+    perspective: 1000px;
 }
 
 .testimonial-card::before {
@@ -2414,8 +2488,8 @@ p {
 }
 
 .testimonial-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 20px 50px rgba(27, 42, 65, 0.6), 0 0 0 1px rgba(247, 184, 1, 0.2);
+    transform: translateY(-10px) rotateX(-5deg) rotateY(3deg) translateZ(25px);
+    box-shadow: 0 25px 60px rgba(27, 42, 65, 0.7), 0 0 0 1px rgba(247, 184, 1, 0.2);
     border-color: rgba(247, 184, 1, 0.3);
 }
 
@@ -2568,9 +2642,11 @@ p {
     margin-bottom: 1rem;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
     overflow: hidden;
-    transition: var(--transition);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
     border: 1px solid rgba(0, 0, 0, 0.08);
+    transform-style: preserve-3d;
+    perspective: 1000px;
 }
 
 .faq-item::before {
@@ -2592,9 +2668,13 @@ p {
 }
 
 .faq-item:hover {
-    transform: translateX(3px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+    transform: translateX(5px) rotateY(2deg) translateZ(10px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15), 0 0 15px rgba(247, 184, 1, 0.1);
     border-color: rgba(247, 184, 1, 0.2);
+}
+
+.faq-item.active {
+    transform: translateX(8px) rotateY(3deg) translateZ(15px);
 }
 
 .faq-question {
@@ -2609,7 +2689,8 @@ p {
     align-items: center;
     font-weight: 600;
     font-size: 1.0625rem;
-    transition: var(--transition);
+    transition: all 0.3s ease;
+    transform-style: preserve-3d;
 }
 
 .faq-question {
@@ -2624,10 +2705,16 @@ p {
     font-size: 1.5rem;
     color: var(--secondary);
     transition: transform 0.3s ease;
+    transform-style: preserve-3d;
+    display: inline-block;
 }
 
 .faq-item.active .faq-icon {
-    transform: rotate(45deg);
+    transform: rotate(45deg) translateZ(10px) scale(1.2);
+}
+
+.faq-item:hover .faq-icon {
+    transform: translateZ(5px) scale(1.1);
 }
 
 .faq-answer {
@@ -2654,11 +2741,28 @@ p {
     background: linear-gradient(135deg, var(--primary) 0%, var(--accent1) 100%);
     color: white;
     text-align: center;
+    position: relative;
+    overflow: hidden;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+}
+
+.cta-content {
+    position: relative;
+    z-index: 2;
+    transform-style: preserve-3d;
 }
 
 .cta-content h2 {
     color: white;
     margin-bottom: 1rem;
+    transform-style: preserve-3d;
+    transition: transform 0.3s ease;
+    display: inline-block;
+}
+
+.cta-content:hover h2 {
+    transform: translateZ(15px) rotateX(2deg);
 }
 
 .cta-content p {
@@ -2691,6 +2795,12 @@ p {
     max-width: 100%;
     display: flex;
     flex-direction: column;
+    transform-style: preserve-3d;
+    transition: transform 0.3s ease;
+}
+
+.footer-column:hover {
+    transform: translateZ(10px) rotateY(2deg);
 }
 
 .footer-column h3,
