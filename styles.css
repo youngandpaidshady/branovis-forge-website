@@ -1017,11 +1017,20 @@ p {
     }
 }
 
+.hero-images-animated-container {
+    opacity: 0;
+    animation: heroImagesFadeIn 0.8s ease 0.2s forwards;
+}
+
+@keyframes heroImagesFadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
 .hero-decorative-shape {
     position: absolute;
-    border-radius: 9999px;
     opacity: 0.5;
-    animation: heroShapeFloat 3s ease-in-out infinite;
 }
 
 .hero-shape-1 {
@@ -1029,8 +1038,8 @@ p {
     left: 25%;
     width: 4rem;
     height: 4rem;
+    border-radius: 50%;
     background: rgba(59, 130, 246, 0.5);
-    animation-delay: 0s;
 }
 
 .hero-shape-2 {
@@ -1040,7 +1049,6 @@ p {
     height: 3rem;
     border-radius: 0.5rem;
     background: rgba(168, 85, 247, 0.5);
-    animation-delay: 0.5s;
 }
 
 .hero-shape-3 {
@@ -1048,7 +1056,23 @@ p {
     left: 1rem;
     width: 1.5rem;
     height: 1.5rem;
+    border-radius: 50%;
     background: rgba(34, 197, 94, 0.5);
+}
+
+.hero-floating-shape {
+    animation: heroShapeFloat 3s ease-in-out infinite;
+}
+
+.hero-shape-1 {
+    animation-delay: 0s;
+}
+
+.hero-shape-2 {
+    animation-delay: 0.5s;
+}
+
+.hero-shape-3 {
     animation-delay: 1s;
 }
 
@@ -1077,6 +1101,12 @@ p {
     border-radius: 0.75rem;
 }
 
+.hero-image-animated {
+    opacity: 0;
+    transform: scale(0.8);
+    animation: heroImageFadeIn 0.5s ease-out forwards;
+}
+
 .hero-image-1 {
     left: 50%;
     top: 0;
@@ -1084,9 +1114,7 @@ p {
     width: 12rem;
     transform: translateX(-50%);
     transform-origin: bottom center;
-    animation: heroImage1FadeIn 0.5s ease-out forwards;
-    opacity: 0;
-    animation-delay: 0.2s;
+    animation-delay: 0.4s;
 }
 
 @media (min-width: 640px) {
@@ -1102,9 +1130,7 @@ p {
     height: 10rem;
     width: 10rem;
     transform-origin: left center;
-    animation: heroImage2FadeIn 0.5s ease-out forwards;
-    opacity: 0;
-    animation-delay: 0.4s;
+    animation-delay: 0.6s;
 }
 
 @media (min-width: 640px) {
@@ -1120,9 +1146,7 @@ p {
     height: 8rem;
     width: 8rem;
     transform-origin: top right;
-    animation: heroImage3FadeIn 0.5s ease-out forwards;
-    opacity: 0;
-    animation-delay: 0.6s;
+    animation-delay: 0.8s;
 }
 
 @media (min-width: 640px) {
@@ -1132,37 +1156,27 @@ p {
     }
 }
 
-@keyframes heroImage1FadeIn {
-    from {
-        opacity: 0;
-        transform: translateX(-50%) scale(0.8);
+@keyframes heroImageFadeIn {
+    to {
+        opacity: 1;
+        transform: scale(1) translateX(0);
     }
+}
+
+.hero-image-1.hero-image-animated {
+    animation-name: heroImage1FadeIn;
+}
+
+@keyframes heroImage1FadeIn {
     to {
         opacity: 1;
         transform: translateX(-50%) scale(1);
     }
 }
 
-@keyframes heroImage2FadeIn {
-    from {
-        opacity: 0;
-        transform: scale(0.8);
-    }
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
-}
-
-@keyframes heroImage3FadeIn {
-    from {
-        opacity: 0;
-        transform: scale(0.8);
-    }
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
+.hero-image-2.hero-image-animated,
+.hero-image-3.hero-image-animated {
+    animation-name: heroImageFadeIn;
 }
 
 /* Legacy Hero (keeping for backwards compatibility) */
