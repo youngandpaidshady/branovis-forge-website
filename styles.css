@@ -2553,20 +2553,24 @@ p {
 /* ===========================================
    FAQ Section
    =========================================== */
+.faq.section {
+    background: #FFFFFF;
+}
+
 .faq-list {
     max-width: 800px;
     margin: 0 auto;
 }
 
 .faq-item {
-    background: var(--accent1);
+    background: #FFFFFF;
     border-radius: 0.5rem;
     margin-bottom: 1rem;
-    box-shadow: var(--shadow-md);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
     overflow: hidden;
     transition: var(--transition);
     position: relative;
-    border: 1px solid rgba(247, 184, 1, 0.1);
+    border: 1px solid rgba(0, 0, 0, 0.08);
 }
 
 .faq-item::before {
@@ -2588,8 +2592,9 @@ p {
 }
 
 .faq-item:hover {
-    transform: translateX(5px);
-    box-shadow: var(--shadow-md);
+    transform: translateX(3px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+    border-color: rgba(247, 184, 1, 0.2);
 }
 
 .faq-question {
@@ -2608,11 +2613,11 @@ p {
 }
 
 .faq-question {
-    color: var(--text-light);
+    color: var(--text-dark);
 }
 
 .faq-question:hover {
-    background: rgba(247, 184, 1, 0.1);
+    background: rgba(247, 184, 1, 0.05);
 }
 
 .faq-icon {
@@ -2637,8 +2642,9 @@ p {
 
 .faq-answer p {
     padding: 0 1.5rem 1.25rem;
-    color: var(--text-muted);
+    color: var(--text-dark);
     line-height: 1.8;
+    opacity: 0.8;
 }
 
 /* ===========================================
